@@ -1,14 +1,19 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'login_page.dart';
+import 'package:prana_task4/screen/home_page.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashLogin extends StatefulWidget {
+  final String userName;
+  final String firstName;
+  final String lastName;
+  SplashLogin({Key key, @required this.userName, @required this.firstName, @required this.lastName}) : super(key: key);
+
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  _SplashLoginState createState() => _SplashLoginState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashLoginState extends State<SplashLogin> {
   @override
   void initState() {
     startTime();
@@ -34,6 +39,6 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void onDone() {
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LoginPage()));
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage(userName: widget.userName, firstName: widget.firstName, lastName: widget.lastName)));
   }
 }
