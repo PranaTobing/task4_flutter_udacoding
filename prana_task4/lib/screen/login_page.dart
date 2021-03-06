@@ -4,8 +4,6 @@ import 'package:prana_task4/screen/signup_page.dart';
 import 'package:http/http.dart' as http;
 import 'package:prana_task4/screen/splash_login.dart';
 import 'dart:convert';
-import 'package:shared_preferences/shared_preferences.dart';
-
 
 class LoginPage extends StatefulWidget {
   @override
@@ -37,16 +35,19 @@ class _LoginPageState extends State<LoginPage> {
     var status = data['status'];
     var message = data['message'];
     if(status == 'success'){
-      var userName = data['username'];
-      var firstName = data['firstname'];
-      var lastName = data['lastname'];
+      var uName = data['username'];
+      var fName = data['firstname'];
+      var lName = data['lastname'];
 
       _formKey.currentState.showSnackBar(SnackBar(
         content: Text('Login Success!'),
         action: SnackBarAction(label: 'Close', onPressed: (){}),
         )
       );
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) =>SplashLogin(userName: userName, firstName: firstName, lastName: lastName)));
+      print(uName);
+      print(fName);
+      print(lName);
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) =>SplashLogin(userName: uName, firstName: fName, lastName: lName)));
     } else {
       _formKey.currentState.showSnackBar(SnackBar(
         content: Text("$message"),

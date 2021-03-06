@@ -7,18 +7,18 @@ class SplashLogin extends StatefulWidget {
   final String userName;
   final String firstName;
   final String lastName;
-  SplashLogin({Key key, @required this.userName, @required this.firstName, @required this.lastName}) : super(key: key);
 
+  SplashLogin({Key key, @required this.userName, @required this.firstName, @required this.lastName}) : super(key:  key);
   @override
   _SplashLoginState createState() => _SplashLoginState();
 }
 
 class _SplashLoginState extends State<SplashLogin> {
-  @override
   void initState() {
     startTime();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +28,7 @@ class _SplashLoginState extends State<SplashLogin> {
         children: <Widget>[
           Image.asset('images/farm-app.png', height: 100.0,),
           SizedBox(height: 30.0,),
+          // Text('Welcome - ${widget.userName}'),
           SpinKitFadingCube(color: Colors.purple[400],)
         ],
       ),
@@ -42,3 +43,4 @@ class _SplashLoginState extends State<SplashLogin> {
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage(userName: widget.userName, firstName: widget.firstName, lastName: widget.lastName)));
   }
 }
+

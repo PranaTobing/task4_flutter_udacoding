@@ -18,7 +18,7 @@
 
 		if(isset($result)){
 			$response['username'] = $result['mfu_username'];
-			$response['firtname'] = $result['mfu_firstname'];
+			$response['firstname'] = $result['mfu_firstname'];
 			$response['lastname'] = $result['mfu_lastname'];
 			$response['status'] = 'success';
 			$response['message'] = 'Hi '.$result['mfu_firstname'].' '.$result['mfu_lastname'];
