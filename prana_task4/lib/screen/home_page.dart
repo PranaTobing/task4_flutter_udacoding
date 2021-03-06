@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:prana_task4/screen/dictionary_widget.dart';
+import 'package:prana_task4/screen/gallery_widget.dart';
+import 'package:prana_task4/screen/news_widget.dart';
+import 'package:prana_task4/screen/setting_widget.dart';
 
 class HomePage extends StatefulWidget {
   final String userName;
@@ -13,8 +17,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-
-  static TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  
+  final List<Widget> _listMenu = [
+    NewsWidget(),
+    GalleryWidget(),
+    DictionaryWidget(),
+    SettingWidget()
+  ];
   
   void _onItemTapped(int index) {
     setState(() {
@@ -24,36 +33,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final widgethome = Text(
-      'News',
-      style: optionStyle,
-    );
-    final widgetgallery = Text(
-      'Gallery',
-      style: optionStyle,
-    );
-    final widgetdictionary = Text(
-      'Dictionary',
-      style: optionStyle,
-    );
-    final widgetsetting = Text(
-      'Setting',
-      style: optionStyle,
-    );
-
-    List<Widget> _widgetOptions = <Widget>[
-      widgethome,
-      widgetgallery,
-      widgetdictionary,
-      widgetsetting
-    ];
-    
     return Scaffold(
       appBar: AppBar(
         title: Text('${widget.userName}'),
       ),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: _listMenu[_selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
