@@ -23,7 +23,7 @@
 			$response['message'] = 'Please choose other username';
 		} else {
 			$sql_ins = "INSERT INTO mf_user(mfu_username,mfu_firstname,mfu_lastname,mfu_password,mfu_createddate)
-						VALUES('$firstname','$lastname','$username','$password',now())";
+						VALUES('$username','$firstname','$lastname','$password',now())";
 			var_dump($sql_ins);
 			if(mysqli_query($db,$sql_ins)){
 				$response['status'] = 'success';
