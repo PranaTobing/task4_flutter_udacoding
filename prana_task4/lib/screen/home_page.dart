@@ -18,13 +18,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   
-  final List<Widget> _listMenu = [
-    NewsWidget(),
-    GalleryWidget(),
-    DictionaryWidget(),
-    SettingWidget()
-  ];
-  
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -33,39 +26,44 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    
+    final List<Widget> _listMenu = [
+      NewsWidget(),
+      GalleryWidget(),
+      DictionaryWidget(),
+      SettingWidget(userName: widget.userName, firstName: widget.firstName, lastName: widget.lastName)
+    ];
+
     return Scaffold(
-      appBar: AppBar(
+      /* appBar: AppBar(
         title: Text('${widget.userName}'),
-      ),
+      ), */
       body: Center(
         child: _listMenu[_selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.green[300],
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'News',
-            // backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.photo_library),
             label: 'Gallery',
-            // backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.library_books),
             label: 'Dictionary',
-            // backgroundColor: Colors.purple,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Settings',
-            // backgroundColor: Colors.pink,
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.white,
         onTap: _onItemTapped,
       ),
     );
