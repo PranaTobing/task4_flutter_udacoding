@@ -173,7 +173,7 @@ class DetailGallery extends StatelessWidget {
                       Container(
                         padding : EdgeInsets.only(bottom: 8.0),
                         child: Text(
-                          "Pertanian di ${list[index]['mfn_title']}",
+                          "Pertanian di ${list[index]['mfg_title']}",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.green,
